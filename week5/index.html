@@ -292,6 +292,25 @@
       document.querySelector('#page3').scrollIntoView({
         behavior: 'smooth'
       });
+    });
+  
+    document.querySelector('.additional-button').addEventListener('click', function () {
+      isModalOpen = true;
+      document.getElementById('knowMoreModal').style.display = 'block';
+    });
+  
+    document.querySelector('.header-text').addEventListener('click', function (event) {
+      event.preventDefault();
+      scrollToTop();
+    });
+  
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  
   </script>
   
 </body>
