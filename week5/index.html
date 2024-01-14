@@ -288,7 +288,10 @@
     const birthYear = 2004;
     const collegeStartYear = new Date().getFullYear() - myAge;
   
-    
+    document.querySelector('.button').addEventListener('click', function () {
+      document.querySelector('#page3').scrollIntoView({
+        behavior: 'smooth'
+      });
   </script>
   
 </body>
