@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+<link rel="icon" href="favicon.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elfabulous</title>
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+ 
+    .header-container {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+ 
+    header {
+      background-color: white;
+      padding: 1%;
+      text-align: center;
+      font-size: 25px;
+      color: #FD5396;
+      font-family: 'Bebas Neue', sans-serif;
+      transition: padding 0.3s;
+    }
+ 
+    .header-text {
+      text-decoration: none;
+      color: #FD5396;
+      cursor: pointer;
+    }
+ 
+    .second-header {
+      background-color: #B5D5FF;
+      padding: 1%;
+      text-align: right;
+      font-size: 17px;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: right;
+      align-items: right;
+      transition: padding 0.3s;
+    }
+ 
+    .second-header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+ 
+    .second-header a:hover {
+      color: #FD5396;
+    }
+ 
+    .second-header a:last-child {
+      margin-right: 0.5in;
+    }
+ 
+    .third-header,
+    .fourth-header,
+    .fifth-header {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      padding: 2%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+ 
+    .third-header {
+      background-color: #FFFAE3;
+      color: black;
+    }
+ 
+    .third-header-content {
+      padding: 10%;
+    }
+ 
+    .profile-image {
+      max-width: 85%;
+      height: auto;
+    }
+ 
+    .fourth-header {
+      background-image: url('keisha.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+ 
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 15px;
+    }
+ 
+    .bordered-image {
+      width: 25%;
+      height: auto;
+      border: 10px solid #EFEB9F;
+      margin: 3%;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+ 
+    .bordered-image:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+ 
+    .bordered-image:nth-child(2) {
+      border-color: #FD5396;
+    }
+ 
+    .button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #FD5396;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 3%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+ 
+    .button:hover {
+      background-color: #E8337A;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+ 
+    .fifth-header {
+      background-color: #FFFAE3;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100vh;
+      padding: 2%;
+      position: relative;
+    }
+ 
+    .text-container {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40%;
+      font-family: 'Lilita One', cursive;
+    }
+ 
+    .text-container p {
+      font-size: 22px;
+      color: #fd5396;
+    }
+ 
+    .fifth-header img {
+      max-width: 45%;
+      height: auto;
+      margin-left: auto;
+    }
+ 
+    .additional-button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #B5D5FF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 3%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+ 
+    .additional-button:hover {
+      background-color: #7895c8;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+ 
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding-top: 60px;
+    }
+ 
+    .modal-content {
+      margin: 5% auto;
+      padding: 20px;
+      max-width: 80%;
+      height: 70%;
+      overflow-y: auto;
+      background-color: #fefefe;
+      border-radius: 5px;
+    }
+ 
+    .close {
+      color: #FD5396;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+ 
+    .close:hover,
+    .close:focus {
+      color: #E8337A;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
+</head>
+ 
+<body>
+ 
+  <!-- Main Page -->
+  <div class="header-container">
+    <header>
+      <a href="#" class="header-text">E l f a b u l o u s</a>
+    </header>
+ 
+    <header class="second-header">
+      <a href="#home" class="header-text" onclick="scrollToTop()">H o m e</a>
+      <a href="#about" class="header-text">A b o u t &nbsp; M e</a>
+      <a href="#contact" class="header-text">C o n t a c t</a>
+    </header>
+  </div>
+ 
+  <header class="third-header">
+    <div class="third-header-content">
+      <img src="website.png" alt="Website Image" class="profile-image">
+    </div>
+  </header>
+ 
+  <!-- Page 2 -->
+  <header class="fourth-header">
+    <div class="image-container">
+      <img src="a.png" alt="Image 1" class="bordered-image">
+      <img src="life.jpg" alt="Image 2" class="bordered-image">
+      <img src="me.JPEG" alt="Image 3" class="bordered-image">
+    </div>
+    <button class="button">Who am I?</button>
+  </header>
+ 
+  <!-- Page 3 -->
+  <header class="fifth-header" id="page3">
+    <div class="text-container">
+      <p style="margin-left: 30px;">Hi !! I'm Nekeisha Ashlyn Elfa, but you can call me <span style="color: #fd5396;">Keisha</span> for short.</p>
+      <p style="line-height: 1.5; margin-left: 30px;" id="ageParagraph"></p>
+      <button class="additional-button">Know more!</button>
+    </div>
+    <img src="journal.PNG" alt="Your Image" style="max-width: 40%; height: auto; margin-left: auto;">
+  </header>
+ 
+  <!-- Modal for "Know more!" button -->
+  <div id="knowMoreModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p>I'm Currently studying at Asia Pacific College pursuing a Bachelor of Science in Information Technology with specialization in Mobile and Internet Technology.</p>
+      <p>I love watching documentary series and sleeping; it is actually my way to unwind.</p>
+      <p>In terms of goals in life, I want to continuously learn and grow as an individual, aiming to apply my knowledge, and practical skills to make a positive impact in my future profession, while enjoying the journey and creating lasting memories during my college life.</p>
+      <p>... hehe not done yet :)) </p>
+    </div>
+  </div>
+ 
+  <script>
+    // Introduction, Events, Precedence & Conditionals, Variables, Let, Const & Data Types, and Dates
+    const myAge = 19;
+    let isModalOpen = false;
+    const birthYear = 2004;
+    const collegeStartYear = new Date().getFullYear() - myAge;
+  
+    
+  </script>
+  
+</body>
+ 
+</html>
