@@ -311,6 +311,15 @@
       });
     }
   
+    function closeModal() {
+      isModalOpen = false;
+      document.getElementById('knowMoreModal').style.display = 'none';
+    }
+  
+    document.addEventListener('DOMContentLoaded', function () {
+      const ageParagraph = document.getElementById('ageParagraph');
+      ageParagraph.textContent = `I'm ${myAge} years old and was born on July 16, 2004.`;
+    });
   </script>
   
 </body>
