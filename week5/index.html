@@ -2,7 +2,7 @@
 <html lang="en">
  
 <head>
-<link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elfabulous</title>
@@ -141,11 +141,15 @@
  
     .fifth-header {
       background-color: #FFFAE3;
+      background-image: url('journal wallpaper.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 100vh;
-      padding: 2%;
+      height: 88vh;
+      padding: 4%;
       position: relative;
     }
  
@@ -187,7 +191,6 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
     }
  
-    
     .modal {
       display: none;
       position: fixed;
@@ -224,6 +227,7 @@
     .close:focus {
       color: #E8337A;
     }
+    
   </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
@@ -239,7 +243,7 @@
  
     <header class="second-header">
       <a href="#home" class="header-text" onclick="scrollToTop()">H o m e</a>
-      <a href="#about" class="header-text">A b o u t &nbsp; M e</a>
+      <a href="#about" id="about-link" class="header-text" onclick="scrollToAbout()">A b o u t &nbsp; M e</a>
       <a href="#contact" class="header-text">C o n t a c t</a>
     </header>
   </div>
@@ -251,7 +255,7 @@
   </header>
  
   <!-- Page 2 -->
-  <header class="fourth-header">
+  <header class="fourth-header" id="about">
     <div class="image-container">
       <img src="a.png" alt="Image 1" class="bordered-image">
       <img src="life.jpg" alt="Image 2" class="bordered-image">
@@ -263,65 +267,121 @@
   <!-- Page 3 -->
   <header class="fifth-header" id="page3">
     <div class="text-container">
-      <p style="margin-left: 30px;">Hi !! I'm Nekeisha Ashlyn Elfa, but you can call me <span style="color: #fd5396;">Keisha</span> for short.</p>
-      <p style="line-height: 1.5; margin-left: 30px;" id="ageParagraph"></p>
-      <button class="additional-button">Know more!</button>
+      <p style="margin-left: 30px;" id="introAndAgeParagraph"></p>
+      <button class="additional-button" onclick="openModal()">Know more!</button>
     </div>
-    <img src="journal.PNG" alt="Your Image" style="max-width: 40%; height: auto; margin-left: auto;">
   </header>
  
   <!-- Modal for "Know more!" button -->
   <div id="knowMoreModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <p>I'm Currently studying at Asia Pacific College pursuing a Bachelor of Science in Information Technology with specialization in Mobile and Internet Technology.</p>
+      <p id="studyInfoParagraph"></p>
       <p>I love watching documentary series and sleeping; it is actually my way to unwind.</p>
-      <p>In terms of goals in life, I want to continuously learn and grow as an individual, aiming to apply my knowledge, and practical skills to make a positive impact in my future profession, while enjoying the journey and creating lasting memories during my college life.</p>
+      <p>In terms of goals in life, I want to continuously learn and grow as an individual, aiming to apply my knowledge and practical skills to make a positive impact in my future profession while enjoying the journey and creating lasting memories during my college life.</p>
       <p>... hehe not done yet :)) </p>
     </div>
   </div>
  
+  <style>
+    .justified {
+      text-align: justify;
+    }
+  </style>
   <script>
-    // Introduction, Events, Precedence & Conditionals, Variables, Let, Const & Data Types, and Dates
     const myAge = 19;
     let isModalOpen = false;
     const birthYear = 2004;
     const collegeStartYear = new Date().getFullYear() - myAge;
-  
+ 
     document.querySelector('.button').addEventListener('click', function () {
       document.querySelector('#page3').scrollIntoView({
         behavior: 'smooth'
       });
     });
-  
+ 
     document.querySelector('.additional-button').addEventListener('click', function () {
-      isModalOpen = true;
-      document.getElementById('knowMoreModal').style.display = 'block';
+      openModal();
     });
-  
+ 
     document.querySelector('.header-text').addEventListener('click', function (event) {
       event.preventDefault();
       scrollToTop();
     });
-  
+ 
     function scrollToTop() {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
     }
-  
+ 
+    document.getElementById('about-link').addEventListener('click', function (event) {
+  event.preventDefault();
+  scrollToAbout();
+});
+ 
+ 
+    function openModal() {
+      isModalOpen = true;
+      document.getElementById('knowMoreModal').style.display = 'block';
+    }
+ 
     function closeModal() {
       isModalOpen = false;
       document.getElementById('knowMoreModal').style.display = 'none';
     }
-  
+ 
     document.addEventListener('DOMContentLoaded', function () {
-      const ageParagraph = document.getElementById('ageParagraph');
-      ageParagraph.textContent = `I'm ${myAge} years old and was born on July 16, 2004.`;
+      const introAndAgeParagraph = document.getElementById('introAndAgeParagraph');
+      const introAndAgeText = "Hi !! I'm Nekeisha Ashlyn Elfa, but you can call me Keisha for short. " +
+        `I'm ${myAge} years old and was born on July 16, 2004.` +
+        " I'm Currently studying at Asia Pacific College pursuing a Bachelor of Science in Information Technology with specialization in Mobile and Internet Technology.";
+      typeText(introAndAgeParagraph, introAndAgeText, 75);
+ 
     });
-  </script>
+ 
+    function typeText(element, text, speed) {
+      let i = 0;
+      const typingInterval = setInterval(function () {
+        element.innerHTML += text.charAt(i);
+        i++;
+        if (i > text.length) {
+          clearInterval(typingInterval);
+        }
+      }, speed);
+    }
+ 
+    // Function to scroll to the "About Me" section
+    function scrollToAbout() {
+  const aboutSection = document.getElementById('about');
+  aboutSection.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest',
+  });
+}
+ 
+</script>
+ 
+  <!-- Footer -->
   
+  <footer style="background-color: #FFFAE3; padding: 30px; text-align: center; font-family: 'Inter', sans-serif;">
+    <p style="margin: 0; color: #fd5396;">&copy; 2024 Elfabulous. All rights reserved.</p>
+    <div style="margin-top: 10px;">
+     
+      <a href="https://github.com/neelfa/lab-2" style="color: white; text-decoration: none; margin-right: 10px;">
+        <img src="git.png" alt="GitHub" style="width: 20px; height: 20px; vertical-align: middle;">
+      </a>
+      
+      <a href="https://www.instagram.com/ashlynkeii/" style="color: white; text-decoration: none;">
+        <img src="ig.png" alt="Instagram" style="width: 20px; height: 20px; vertical-align: middle;">
+      </a>
+    </div>
+  </footer>
+ 
+  
+ 
 </body>
  
 </html>
