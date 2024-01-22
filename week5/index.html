@@ -282,12 +282,7 @@
       <p>... hehe not done yet :)) </p>
     </div>
   </div>
- 
-  <style>
-    .justified {
-      text-align: justify;
-    }
-  </style>
+  
   <!-- Lesson 1: Objects -->
   <script>
     const person = {
@@ -304,6 +299,38 @@
     console.log(person.age);
     console.log(person);
   </script>
+ 
+ <!-- Lesson 2: Functions -->
+  <script>
+    function displayIntroduction(name, age) {
+      console.log(`Hi! I'm ${name}, and I'm ${age} years old.`);
+    }
+ 
+    displayIntroduction("Nekeisha Ashlyn Elfa", 19);
+ 
+    function calculateBirthYear(age) {
+      return new Date().getFullYear() - age;
+    }
+ 
+    console.log(`Birth Year: ${calculateBirthYear(19)}`);
+  </script>
+ 
+  <style>
+    .justified {
+      text-align: justify;
+    }
+  </style>
+  <script>
+    const myAge = 19;
+    let isModalOpen = false;
+    const birthYear = 2004;
+    const collegeStartYear = new Date().getFullYear() - myAge;
+ 
+    document.querySelector('.button').addEventListener('click', function () {
+      document.querySelector('#page3').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
  
     document.querySelector('.additional-button').addEventListener('click', function () {
       openModal();
