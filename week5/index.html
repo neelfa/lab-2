@@ -65,7 +65,8 @@
  
     .third-header,
     .fourth-header,
-    .fifth-header {
+    .fifth-header,
+    .contact-header {
       text-align: center;
       font-family: 'Inter', sans-serif;
       padding: 2%;
@@ -227,7 +228,16 @@
     .close:focus {
       color: #E8337A;
     }
-    
+ 
+    /* New Contact Me Section Styles */
+    .contact-header {
+      background-color: #FFFAE3;
+    }
+ 
+    .contact-content {
+      text-align: center;
+    }
+ 
   </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
@@ -244,10 +254,11 @@
     <header class="second-header">
       <a href="#home" class="header-text" onclick="scrollToTop()">H o m e</a>
       <a href="#about" id="about-link" class="header-text" onclick="scrollToAbout()">A b o u t &nbsp; M e</a>
-      <a href="#contact" class="header-text">C o n t a c t</a>
+      <a href="#contact" class="contact-link" onclick="scrollToContact()">C o n t a c t</a>
     </header>
   </div>
  
+  <!-- Page 1 -->
   <header class="third-header">
     <div class="third-header-content">
       <img src="website.png" alt="Website Image" class="profile-image">
@@ -272,6 +283,15 @@
     </div>
   </header>
  
+  <!-- Contact Me -->
+  <header class="contact-header" id="contact">
+    <div class="contact-content">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out to me through the following channels:</p>
+      <!-- Add your contact information or form here -->
+    </div>
+  </header>
+ 
   <!-- Modal for "Know more!" button -->
   <div id="knowMoreModal" class="modal">
     <div class="modal-content">
@@ -282,7 +302,7 @@
       <p>... hehe not done yet :)) </p>
     </div>
   </div>
-  
+ 
   <!-- Lesson 1: Objects -->
   <script>
     const person = {
@@ -300,7 +320,7 @@
     console.log(person);
   </script>
  
- <!-- Lesson 2: Functions -->
+  <!-- Lesson 2: Functions -->
   <script>
     function displayIntroduction(name, age) {
       console.log(`Hi! I'm ${name}, and I'm ${age} years old.`);
@@ -314,10 +334,10 @@
  
     console.log(`Birth Year: ${calculateBirthYear(19)}`);
   </script>
-  
-    <!-- Lesson 3: Modules -->
+ 
+  <!-- Lesson 3: Modules -->
   <script type="module" src="./myModule.js"></script>
-  
+ 
   <!-- Lesson 4: Classes -->
   <script>
     class Person {
@@ -336,12 +356,7 @@
     keisha.displayIntroduction();
   </script>
  
-  <style>
-    .justified {
-      text-align: justify;
-    }
-	
-	  <!-- Lesson 5: Async -->
+  <!-- Lesson 5: Async -->
   <script>
     async function fetchData() {
       try {
@@ -355,7 +370,7 @@
  
     fetchData();
   </script>
-  </style>
+ 
   <script>
     const myAge = 19;
     let isModalOpen = false;
@@ -377,18 +392,15 @@
       scrollToTop();
     });
  
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
- 
     document.getElementById('about-link').addEventListener('click', function (event) {
-  event.preventDefault();
-  scrollToAbout();
-});
+      event.preventDefault();
+      scrollToAbout();
+    });
  
+    document.querySelector('.contact-link').addEventListener('click', function (event) {
+      event.preventDefault();
+      scrollToContact();
+    });
  
     function openModal() {
       isModalOpen = true;
@@ -420,35 +432,44 @@
       }, speed);
     }
  
-    // Function to scroll to the "About Me" section
-    function scrollToAbout() {
-  const aboutSection = document.getElementById('about');
-  aboutSection.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest',
-  });
-}
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
  
-</script>
+    function scrollToAbout() {
+      const aboutSection = document.getElementById('about');
+      aboutSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }
+ 
+    function scrollToContact() {
+      const contactSection = document.getElementById('contact');
+      contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }
+  </script>
  
   <!-- Footer -->
-  
   <footer style="background-color: #FFFAE3; padding: 30px; text-align: center; font-family: 'Inter', sans-serif;">
     <p style="margin: 0; color: #fd5396;">&copy; 2024 Elfabulous. All rights reserved.</p>
     <div style="margin-top: 10px;">
-     
       <a href="https://github.com/neelfa/lab-2" style="color: white; text-decoration: none; margin-right: 10px;">
         <img src="git.png" alt="GitHub" style="width: 20px; height: 20px; vertical-align: middle;">
       </a>
-      
       <a href="https://www.instagram.com/ashlynkeii/" style="color: white; text-decoration: none;">
         <img src="ig.png" alt="Instagram" style="width: 20px; height: 20px; vertical-align: middle;">
       </a>
     </div>
   </footer>
- 
-  
  
 </body>
  
