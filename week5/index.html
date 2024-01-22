@@ -288,17 +288,22 @@
       text-align: justify;
     }
   </style>
+  <!-- Lesson 1: Objects -->
   <script>
-    const myAge = 19;
-    let isModalOpen = false;
-    const birthYear = 2004;
-    const collegeStartYear = new Date().getFullYear() - myAge;
+    const person = {
+      name: "Nekeisha Ashlyn Elfa",
+      age: 19,
+      birthYear: 2004,
+      college: "Asia Pacific College",
+      program: "Bachelor of Science in Information Technology",
+      specialization: "Mobile and Internet Technology",
+      hobbies: ["Watching documentaries", "Sleeping"]
+    };
  
-    document.querySelector('.button').addEventListener('click', function () {
-      document.querySelector('#page3').scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
+    console.log(person.name);
+    console.log(person.age);
+    console.log(person);
+  </script>
  
     document.querySelector('.additional-button').addEventListener('click', function () {
       openModal();
