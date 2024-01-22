@@ -340,6 +340,21 @@
     .justified {
       text-align: justify;
     }
+	
+	  <!-- Lesson 5: Async -->
+  <script>
+    async function fetchData() {
+      try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+ 
+    fetchData();
+  </script>
   </style>
   <script>
     const myAge = 19;
