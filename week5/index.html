@@ -317,6 +317,24 @@
   
     <!-- Lesson 3: Modules -->
   <script type="module" src="./myModule.js"></script>
+  
+  <!-- Lesson 4: Classes -->
+  <script>
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+ 
+      displayIntroduction() {
+        console.log(`Hi! I'm ${this.name}, and I'm ${this.age} years old.`);
+      }
+    }
+ 
+    const keisha = new Person("Nekeisha Ashlyn Elfa", 19);
+ 
+    keisha.displayIntroduction();
+  </script>
  
   <style>
     .justified {
