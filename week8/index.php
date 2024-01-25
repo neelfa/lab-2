@@ -288,7 +288,6 @@
     <div class="contact-content">
       <h2>Contact Me</h2>
       <p>Feel free to reach out to me through the following channels:</p>
-      <!-- Add your contact information or form here -->
  
     <?php
     // Variables
@@ -299,8 +298,9 @@
       // Retrieve and sanitize user input
       $name = htmlspecialchars($_POST["name"]);
       $message = htmlspecialchars($_POST["message"]);
- 
-      
+	  
+	// Echo / Print
+    echo "<p>Thank you, $name, for your message!</p>";   
     }
     ?>
  
