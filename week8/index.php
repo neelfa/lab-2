@@ -300,7 +300,17 @@
       $message = htmlspecialchars($_POST["message"]);
 	  
 	// Echo / Print
-    echo "<p>Thank you, $name, for your message!</p>";   
+    echo "<p>Thank you, $name, for your message! :)) </p>";   
+	
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+ 
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" required></textarea>
+ 
+      <button type="submit" class="button">Submit</button>
+    </form>
     }
     ?>
  
