@@ -302,6 +302,7 @@
 	// Echo / Print
     echo "<p>Thank you, $name, for your message! :)) </p>";   
 	
+
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
       <label for="name">Your Name:</label>
       <input type="text" id="name" name="name" required>
@@ -311,6 +312,9 @@
  
       <button type="submit" class="button">Submit</button>
     </form>
+	
+	// array
+	$submittedMessages = array();
     }
     ?>
  
