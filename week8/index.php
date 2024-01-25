@@ -288,22 +288,26 @@
     <div class="contact-content">
       <h2>Contact Me</h2>
       <p>Feel free to reach out to me through the following channels:</p>
+      <!-- Add your contact information or form here -->
  
     <?php
     // Variables
     $name = $message = "";
-	
-	// Conditionals
+ 
+    // Conditionals
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Retrieve and sanitize user input
       $name = htmlspecialchars($_POST["name"]);
       $message = htmlspecialchars($_POST["message"]);
-	  
-	// Echo / Print
-    echo "<p>Thank you, $name, for your message! :)) </p>";   
-	
-
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+ 
+      // Echo / Print
+      echo "<p>Thank you, $name, for your message!</p>";
+    }
+    ?>
+ 
+    <!-- Data type -->
+    
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
       <label for="name">Your Name:</label>
       <input type="text" id="name" name="name" required>
  
@@ -312,12 +316,8 @@
  
       <button type="submit" class="button">Submit</button>
     </form>
-	
-	// array
-	$submittedMessages = array();
-    }
-    ?>
- 
+  </div>
+</header>
  
   <!-- Modal for "Know more!" button -->
   <div id="knowMoreModal" class="modal">
