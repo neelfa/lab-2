@@ -382,10 +382,24 @@ echo $gender;
 ?>
 
 <?php
+<<<<<<< HEAD
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "myDB";
+=======
+//For Xampp localhost
+//$servername = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "myDB";
+
+// For Socitcloud
+$servername = "localhost";
+$username = "webprogmi222_sf221";
+$password = "xE*Y2nleNVvZm[!!";
+$dbname = "webprogmi222_sf221";
+>>>>>>> 9b1b4ede7c859a9da68b4f6c43e49f76ff5748ef
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -394,7 +408,11 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+<<<<<<< HEAD
 $sql = "INSERT INTO MyGuests (name, email, website, comment, gender)
+=======
+$sql = "INSERT INTO neelfa_myguests (name, email, website, comment, gender)
+>>>>>>> 9b1b4ede7c859a9da68b4f6c43e49f76ff5748ef
 VALUES ('$name', '$email', '$website', 'comment', 'gender')";
 
 if ($conn->query($sql) === TRUE) {
